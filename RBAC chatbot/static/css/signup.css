@@ -1,0 +1,89 @@
+/* Same animated gradient background */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #1a1f36, #16222a, #3a6073, #2c5364);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.title {
+  font-size: 2.3rem;
+  text-align: center;
+  text-shadow: 0 0 15px #00f2fe, 0 0 30px #4facfe;
+  margin-bottom: 20px;
+}
+
+.auth-container {
+  width: 350px;
+  text-align: center;
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transform: perspective(1000px) rotateX(0deg);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.auth-card:hover {
+  transform: perspective(1000px) rotateX(5deg);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00f2fe;
+}
+
+/* Error or success message */
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  background: rgba(255,0,0,0.2);
+  color: #ff8080;
+  font-weight: bold;
+  text-align: center;
+}

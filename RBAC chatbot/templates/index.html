@@ -1,0 +1,47 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RBAC Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- ✅ Username & Role top-right -->
+  <div class="top-bar">
+    <span>👤 {{ session['username'] }} ({{ session['role'] }})</span>
+  </div>
+
+  <div class="container">
+    <h1>📄 RBAC Chatbot</h1>
+
+    <!-- ✅ Upload section: Only for managers -->
+    {% if session['role'] == 'manager' %}
+    <div class="upload-section">
+      <h2>Upload PDF</h2>
+      <input type="file" id="pdfFile" accept="application/pdf">
+      <button onclick="uploadPDF()">Upload PDF</button>
+      <p id="uploadStatus"></p>
+    </div>
+    {% endif %}
+
+    <!-- ✅ Ask section: For both manager & employee -->
+    <div class="ask-section">
+      <h2>Ask a Question</h2>
+      <input type="text" id="questionInput" placeholder="Ask your question...">
+      <button onclick="askQuestion()">Ask</button>
+      <div id="answerText"></div>
+    </div>
+
+    <!-- ✅ Buttons -->
+    <div class="actions">
+      <a href="{{ url_for('history') }}"><button>📜 View History</button></a>
+      <a href="{{ url_for('logout') }}"><button>🚪 Logout</button></a>
+    </div>
+  </div>
+
+  <!-- ✅ Script -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
